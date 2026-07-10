@@ -1,0 +1,135 @@
+.task-detail-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.back-button {
+  background-color: #ecf0f1;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #d5dbdb;
+}
+
+.task-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #ecf0f1;
+  padding-bottom: 20px;
+}
+
+.task-detail-info h2 {
+  margin-bottom: 16px;
+  color: #2c3e50;
+}
+
+.detail-row {
+  display: flex;
+  margin-bottom: 10px;
+  gap: 12px;
+}
+
+.detail-row:last-child {
+  margin-bottom: 0;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: #666;
+  min-width: 150px;
+}
+
+.detail-value {
+  color: #2c3e50;
+  font-family: 'Courier New', monospace;
+}
+
+.claim-button-container {
+  min-width: 200px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.approved-badge {
+  display: inline-block;
+  background-color: #16a085;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.replications-section {
+  margin-bottom: 30px;
+}
+
+.replications-section h3 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #2c3e50;
+}
+
+.claim-required-note {
+  background-color: #fef5e7;
+  border-left: 3px solid #f39c12;
+  color: #7d6608;
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.replications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.approval-section {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid #ecf0f1;
+}
+
+.approve-task-button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.approve-task-button.enabled {
+  background-color: #27ae60;
+  color: white;
+}
+
+.approve-task-button.enabled:hover {
+  background-color: #229954;
+  box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+}
+
+.approve-task-button.disabled {
+  background-color: #bdc3c7;
+  color: #7f8c8d;
+  cursor: not-allowed;
+}

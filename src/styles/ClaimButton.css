@@ -1,0 +1,60 @@
+.claim-button-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.claim-button {
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.claim-button.unclaimed {
+  background-color: #3498db;
+  color: white;
+}
+
+.claim-button.unclaimed:hover:not(:disabled) {
+  background-color: #2980b9;
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.claim-button.unclaimed:disabled {
+  background-color: #bdc3c7;
+  color: #7f8c8d;
+  cursor: not-allowed;
+}
+
+.claim-badge {
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.claim-badge.claimed {
+  background-color: #27ae60;
+  color: white;
+}
+
+.claim-badge.claimed-other {
+  background-color: #e67e22;
+  color: white;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 12px;
+  padding: 4px 8px;
+  background-color: #fadbd8;
+  border-radius: 4px;
+  text-align: center;
+}

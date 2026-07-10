@@ -1,0 +1,216 @@
+.replication-row {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 16px;
+  background-color: #fafafa;
+}
+
+.replication-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.replication-info {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.replication-number {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 14px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-badge.status-unclaimed {
+  background-color: #ecf0f1;
+  color: #7f8c8d;
+}
+
+.status-badge.status-pending-edit {
+  background-color: #f39c12;
+  color: white;
+}
+
+.status-badge.status-approved {
+  background-color: #27ae60;
+  color: white;
+}
+
+.status-badge.status-sent-to-rework {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.status-badge.status-rework-resubmitted {
+  background-color: #f39c12;
+  color: white;
+}
+
+.replication-completed-by {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.replication-completed-by strong {
+  color: #2c3e50;
+}
+
+.history-toggle {
+  background-color: transparent;
+  border: 1px solid #bdc3c7;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.3s ease;
+}
+
+.history-toggle:hover {
+  background-color: #ecf0f1;
+}
+
+.replication-history {
+  margin-bottom: 16px;
+  padding: 12px;
+  background-color: white;
+  border-radius: 4px;
+  border-left: 3px solid #3498db;
+}
+
+.no-history {
+  color: #999;
+  font-size: 12px;
+  margin: 0;
+}
+
+.history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.history-item {
+  display: flex;
+  gap: 12px;
+  padding: 8px 0;
+  font-size: 12px;
+  color: #666;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-action {
+  font-weight: 600;
+  color: #2c3e50;
+  min-width: 80px;
+}
+
+.history-actor {
+  flex: 1;
+}
+
+.history-time {
+  color: #999;
+  white-space: nowrap;
+}
+
+.replication-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.link-display {
+  padding: 10px 12px;
+  background-color: #ecf0f1;
+  border-left: 3px solid #3498db;
+  border-radius: 4px;
+  font-size: 13px;
+  word-break: break-all;
+}
+
+.link-display strong {
+  color: #2c3e50;
+}
+
+.rework-confirm {
+  padding: 10px 12px;
+  background-color: #fef5e7;
+  border-left: 3px solid #f39c12;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #7d6608;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.action-button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.action-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.view-button {
+  background-color: #3498db;
+  color: white;
+}
+
+.view-button:hover:not(:disabled) {
+  background-color: #2980b9;
+}
+
+.edit-button {
+  background-color: #9b59b6;
+  color: white;
+}
+
+.edit-button:hover:not(:disabled) {
+  background-color: #8e44ad;
+}
+
+.rework-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.rework-button:hover:not(:disabled) {
+  background-color: #c0392b;
+}
+
+.approve-button {
+  background-color: #27ae60;
+  color: white;
+}
+
+.approve-button:hover:not(:disabled) {
+  background-color: #229954;
+}
