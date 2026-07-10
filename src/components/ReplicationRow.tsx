@@ -27,7 +27,7 @@ export default function ReplicationRow({ taskId, replication, canAct }: Replicat
   const statusLabels: Partial<Record<Replication['status'], string>> = {
     unclaimed: 'Pending Review',
     pending_edit: 'Pending Edit by QA',
-    rework_resubmitted: 'Resubmitted — Pending Review',
+    rework_resubmitted: 'Resubmitted, Pending Review',
   };
   const statusLabel = statusLabels[replication.status] ?? replication.status;
   const statusBadgeClass = `status-badge status-${replication.status.replace(/_/g, '-')}`;
@@ -37,7 +37,7 @@ export default function ReplicationRow({ taskId, replication, canAct }: Replicat
   const editDisabled = !canAct || replication.status === 'approved' || isWaitingOnRework;
   const reworkDisabled = !canAct || replication.status === 'approved' || isWaitingOnRework;
   // Approve stays enabled on 'sent_to_rework' too, so the QA can resolve it
-  // directly once the rework comes back (there's no separate "mark resubmitted" step).
+  // directly once the rework comes back. There's no separate resubmit step.
   const approveDisabled = !canAct || replication.status === 'approved';
 
   const handleView = () => {
@@ -121,7 +121,7 @@ export default function ReplicationRow({ taskId, replication, canAct }: Replicat
         )}
         {reworkConfirm && (
           <div className="rework-confirm">
-            <strong>Sent to rework!</strong> Waiting for reviewer response.
+            <strong>Sent to rework.</strong> Waiting for reviewer response.
           </div>
         )}
 

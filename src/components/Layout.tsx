@@ -20,8 +20,8 @@ export default function Layout() {
   const pendingTasks = tasks.filter((task) => task.status !== 'approved');
 
   // A replication has had its first-pass decision made once it's no longer
-  // fresh/being-edited — this also covers a rework that's since come back
-  // (rework_resubmitted) so the task doesn't bounce back out of "Reworks"
+  // fresh or being edited. This also covers a rework that's since come back
+  // (rework_resubmitted), so the task doesn't bounce back out of "Reworks"
   // while the QA is re-reviewing it.
   const hasFirstDecision = (rep: (typeof tasks)[number]['replications'][number]) =>
     rep.status === 'approved' || rep.status === 'sent_to_rework' || rep.status === 'rework_resubmitted';

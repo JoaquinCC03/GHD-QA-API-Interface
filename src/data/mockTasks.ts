@@ -8,7 +8,7 @@ const raters = [
   { id: 'rater-5', name: 'Emma Brown', email: 'emma.brown@qacorp.com' },
 ];
 
-// Other QAs already working the queue — distinct from the current user.
+// Other QAs already working the queue, distinct from the current user.
 const otherQas = {
   sam: 'sam.taylor@qacorp.com',
   priya: 'priya.nair@qacorp.com',
@@ -70,7 +70,7 @@ const applyResubmit = (rep: Replication, resubmittedHoursAgo: number): Replicati
 
 export const generateMockTasks = (): Task[] => {
   return [
-    // Queue: fresh, untouched task — nobody has claimed or reviewed it yet.
+    // Queue: fresh, untouched task. Nobody has claimed or reviewed it yet.
     {
       id: 'task-1',
       revision_set_id: 'RS-2024-001',
@@ -147,7 +147,7 @@ export const generateMockTasks = (): Task[] => {
         ]),
       ],
     },
-    // Reworks: 1 of 3 sent to rework, still waiting on the rater — always
+    // Reworks: 1 of 3 sent to rework, still waiting on the rater. Always
     // claimed by whoever reviewed it the first time.
     {
       id: 'task-5',
@@ -172,7 +172,7 @@ export const generateMockTasks = (): Task[] => {
         ]),
       ],
     },
-    // Reworks: 2 of 3 sent to rework — one already resubmitted by the rater
+    // Reworks: 2 of 3 sent to rework. One already resubmitted by the rater
     // (ready for re-review), the other still waiting.
     {
       id: 'task-6',
@@ -200,7 +200,7 @@ export const generateMockTasks = (): Task[] => {
         ]),
       ],
     },
-    // Queue: only 2 of 3 replications have arrived so far — not claimable yet.
+    // Queue: only 2 of 3 replications have arrived so far, not claimable yet.
     {
       id: 'task-7',
       revision_set_id: 'RS-2024-007',
@@ -212,7 +212,7 @@ export const generateMockTasks = (): Task[] => {
         makeReplication('rep-7-2', 2, 3, 'unclaimed', 0.5),
       ],
     },
-    // Queue: fully submitted but already claimed by another QA — nothing
+    // Queue: fully submitted but already claimed by another QA. Nothing
     // reviewed yet.
     {
       id: 'task-8',

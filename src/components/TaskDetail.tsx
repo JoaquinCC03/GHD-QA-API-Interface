@@ -18,7 +18,7 @@ export default function TaskDetail({ task, onBack }: TaskDetailProps) {
   const isTaskApproved = task.status === 'approved';
   const isClaimedByMe = task.claimed_by === currentUser;
 
-  // Final approval requires every replication to actually be approved — a
+  // Final approval requires every replication to actually be approved. A
   // reworked one that's merely "sent to rework" or "resubmitted" still needs
   // the QA to review and approve it before the task itself can be finalized.
   const allReplicationsTerminal = task.replications.every((rep) => rep.status === 'approved');

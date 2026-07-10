@@ -1,62 +1,62 @@
 # QA Task Interface
 
-Interfaz web para gestionar tareas de QA con replications, claims y reworks. Todo corre **en memoria**: no hay backend ni base de datos, así que al recargar la página se pierde el estado y vuelve a los datos de ejemplo.
+Web interface for managing QA tasks with replications, claims, and reworks. Everything runs in memory: there is no backend or database, so reloading the page resets the state back to the sample data.
 
-## Requisitos
+## Requirements
 
-- Node.js 18 o superior
+- Node.js 18 or higher
 - npm
 
-## Cómo correrlo
+## Running it
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abrí [http://localhost:5173](http://localhost:5173) en el navegador.
+Open [http://localhost:5173](http://localhost:5173) in the browser.
 
-## Qué hace
+## What it does
 
-La app tiene tres tabs:
+The app has three tabs:
 
-- **Queue**: tareas que todavía no fueron enviadas a rework, o que sí tienen alguna replication en rework pero aún no se decidió sobre todas.
-- **Reworks**: tareas donde ya se decidió sobre las 3 replications y al menos una fue enviada a rework.
-- **Approved**: tareas ya aprobadas de forma final.
+- **Queue**: tasks that haven't been sent to rework yet, or that have a replication in rework but haven't had a decision made on all of them.
+- **Reworks**: tasks where all 3 replications have been decided and at least one was sent to rework.
+- **Approved**: tasks that have received final approval.
 
 ### Claims
 
-- Cada QA puede tener hasta **3 tareas claimeadas** a la vez.
-- Solo se puede claimear una tarea si ya llegaron sus **3 replications** (columna "Submitted").
-- Una vez claimeada, no se puede desclaimear manualmente.
-- Cuando las 3 replications de una tarea quedan decididas (aprobadas o mandadas a rework), la tarea se libera del cupo de "My Claimed Tasks" automáticamente, aunque siga figurando como tuya.
+- Each QA can have up to **3 claimed tasks** at a time.
+- A task can only be claimed once all **3 replications** have arrived (see the "Submitted" column).
+- Once claimed, a task cannot be manually unclaimed.
+- Once all 3 replications of a task are decided (approved or sent to rework), the task frees up its slot in "My Claimed Tasks" automatically, even though it still shows as claimed by that QA.
 
 ### Replications
 
-Cada replication tiene 4 acciones: **View**, **Edit Myself**, **Send to Rework** y **Approve**. Todas requieren tener la tarea claimeada (excepto View, que además nunca se deshabilita por el estado de la replication).
+Each replication has 4 actions: **View**, **Edit Myself**, **Send to Rework**, and **Approve**. All of them require the task to be claimed, except View, which is also never disabled based on the replication's status.
 
-Cuando una replication se manda a rework, queda esperando al rater. Mientras espera, solo se puede ver (View); Edit y Send to Rework quedan bloqueados hasta que se resuelve. Approve sigue disponible para poder resolverla directamente cuando el trabajo corregido ya está listo.
+When a replication is sent to rework, it waits on the rater. While waiting, only View works; Edit and Send to Rework stay disabled until it's resolved. Approve stays available so it can be resolved directly once the corrected work is ready.
 
-### Aprobación final
+### Final approval
 
-El botón "Approve Task" se habilita solo cuando **las 3 replications están realmente aprobadas**. Pide confirmación por popup porque la acción es irreversible.
+The "Approve Task" button is enabled only once **all 3 replications are actually approved**. It asks for confirmation in a popup since the action can't be undone.
 
-### Colores de fila (en las listas)
+### Row colors (in the lists)
 
-- 🔵 Azul: tarea claimeada por vos.
-- 🟠 Naranja: claimeada por otro QA.
-- 🟢 Verde: sin claimear y lista para tomar (3/3 submitted).
-- Sin color: todavía no llegaron las 3 replications.
+- Blue: task claimed by you.
+- Orange: claimed by another QA.
+- Green: unclaimed and ready to pick up (3/3 submitted).
+- No color: not all 3 replications have arrived yet.
 
-Hay un filtro "Ready to Claim" para ver solo las verdes, y otro "My Claimed Tasks" para ver solo las tuyas.
+There's a "Ready to Claim" filter to show only the green rows, and a "My Claimed Tasks" filter to show only your own.
 
-## Estructura del código
+## Code structure
 
 ```
 src/
-  hooks/useTaskState.ts   # todo el estado de la app (tareas, claims, acciones)
-  data/mockTasks.ts       # datos de ejemplo que se cargan al iniciar
+  hooks/useTaskState.ts   # all app state (tasks, claims, actions)
+  data/mockTasks.ts       # sample data loaded on startup
   components/             # UI: Layout (tabs), TaskList, TaskDetail, ReplicationRow, etc.
 ```
 
-No hay routing ni persistencia: `useTaskState.ts` es la única fuente de verdad, guardada en un `useState` de React.
+There's no routing and no persistence. `useTaskState.ts` is the single source of truth, held in a React `useState`.
